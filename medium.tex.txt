@@ -1,0 +1,46 @@
+%--------------------------
+% Medium
+%--------------------------
+
+\subsection{Medium Vulnerabilities (2)}
+\begin{tcolorbox}[
+	title=Communication is not secure,
+	colback=yellow!5!white,
+	colframe=yellow!75!black,
+	subtitle style={boxrule=0.4pt, colback=yellow!50!white}	
+	] 
+	The domain has not enabled HSTS (HTTP Strict Transport Security)
+\tcbsubtitle{Synopsis}
+The domain has not enabled HSTS (HTTP Strict Transport Security)
+\tcbsubtitle{Description}
+An HSTS Policy informs the HTTP client how long to cache the HTTPS-only policy and whether this applies to subdomains. HSTS exists to remove the need for the common, insecure practice of redirecting users from http:// to https:// URLs.
+\tcbsubtitle{Solution}
+Apply the following registry changes per the referenced Technet advisories :\\
+Set :\\
+-\path{HKLM\SYSTEM\CurrentControlSet\Control\LSA\RestrictAnonymous=1}\\
+-\path{HKLM\SYSTEM\CurrentControlSet\Services\lanmanserver\parameters\restrictnullsessaccess=1}\\
+Remove BROWSER from :\\
+-\path{HKLM\SYSTEM\CurrentControlSet\Services\lanmanserver\parameters\NullSessionPipes}\\ 
+Reboot once the registry changes are complete.
+\tcbsubtitle{See Also}
+\url{https://https.cio.gov/hsts/}\\
+\end{tcolorbox}
+
+\begin{tcolorbox}[
+	title=SMB Signing Disabled - Nessus Plugin ID 57608,
+	colback=yellow!5!white,
+	colframe=yellow!75!black,
+	subtitle style={boxrule=0.4pt, colback=yellow!50!white}	
+	] 
+	10.10.10.130 (tcp/445)
+\tcbsubtitle{Synopsis}
+Signing is not required on the remote SMB server.
+\tcbsubtitle{Description}
+Signing is not required on the remote SMB server. An unauthenticated, remote attacker can exploit this to conduct man-in-the-middle attacks against the SMB server.
+\tcbsubtitle{Solution}
+Enforce message signing in the host's configuration. On Windows, this is found in the policy setting `Microsoft network server: Digitally sign communications (always)'. On Samba, the setting is called `server signing'. See the 'see also' links for further details.
+\tcbsubtitle{See Also}
+\url{https://support.microsoft.com/en-us/kb/887429}\\
+\url{http://technet.microsoft.com/en-us/library/cc731957.aspx}\\
+\url{http://www.samba.org/samba/docs/man/manpages-3/smb.conf.5.html}
+\end{tcolorbox}

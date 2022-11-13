@@ -1,0 +1,68 @@
+\documentclass[12pt]{article}
+\usepackage{graphicx} %Required for the inclusion of images
+\usepackage{float}
+\usepackage{tcolorbox}%Required for colored boxes
+\usepackage[obeyspaces]{url}%Required for windows path
+\usepackage{verbatim}%Required for multiline comment
+\usepackage{listings}%Required for displaying linux/unix command highlighting in latex
+
+\begin{document}
+\title{Cyber Sapienes Vulnerability Report}%project title
+\author{Tejas \textsc{Jamdade}}%your name
+\date{\today}
+\maketitle
+\newpage
+\tableofcontents
+\newpage
+
+\section{Project Overview}
+\begin{flushleft}
+\textbf{Conducted by: } Tejas Jamdade\\
+\vspace{4mm}
+\textbf{Conducted for: } Cyber Sapiens\\
+\vspace{4mm}
+\textbf{Date Conducted: } \today\\
+\vspace{4mm}
+\textbf{Focus of Assessment: } Conducted penetration testing for the target website (Cyber Sapaines) given by the 'CyberSapiens' client.
+\end{flushleft}
+
+\begin{tcolorbox}[title=Home Lab Client]
+URL: https://thc.cybersapiens.in/\\
+Client name: \textbf{Cyber Sapaines THC}\\ 
+IP:  \textbf{61.1.xxx.xxx}
+\end{tcolorbox}
+
+\section{Executive Summary}
+The following report details the findings from the security assessment for the target assigned to me, i.e., 'Cyber Sapaines THC'. The assessment included the following activities as outlined in the Vulnerability Assessment Profiles section of the Assessment Program document.
+
+\begin{itemize}
+	\item Vulnerability Assessment 
+	\item	Penetration Testing
+\end{itemize}
+
+\section{Findings and Recommendations}
+The following findings and recommendations are made using Burp Suite (Enterprise edition). \\
+
+%--------------------------
+% Critical
+%--------------------------
+\input{critical}
+
+%--------------------------
+% Medium
+%--------------------------
+\input{medium}
+
+\input{low.tex}
+\newpage
+%--------------------------
+% Info
+%--------------------------
+\input{info}
+% \newpage
+%\input{remeditation}
+\newpage
+\input{pentest}
+%\newpage
+%\input{remeditation}
+\end{document}
