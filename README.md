@@ -1,6 +1,6 @@
 # security-report-template-latex
 
-This is latex template for writing security reports for vulnerability analysis as well as penetration testing.
+This is a a latex template for writing security reports for vulnerability analysis and penetration testing.
 
 Working on it...
-Will keep it updated!
+It will be updated soon!
